@@ -9,13 +9,13 @@ function loadImage(src,i,onLoad){
 
     let img=new Image();
     src.img=img;
+    img.src=src.src;
     img.addEventListener("load",(event)=>{
       if(typeof onLoad=="function"){
         onLoad.call(null,img,i);
       }
       resolve(src);
     });
-    img.src=src.src;
   })
 }
 

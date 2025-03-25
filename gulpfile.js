@@ -1,15 +1,12 @@
-var gulp = require('gulp'),
-  fs = require('fs'),
-  source = require('vinyl-source-stream'),
-  browserify = require('browserify'),
-  uglify = require('gulp-uglify'),
-  streamify = require('gulp-streamify'),
-  babelify = require("babelify");
-	gsap = require("gsap");
-	glslify = require("glslify");
+import gulp from 'gulp';
+import source from 'vinyl-source-stream';
+import browserify from 'browserify';
+import uglify from 'gulp-uglify';
+import streamify from 'gulp-streamify';
+import babelify from 'babelify';
 
 function compileJS(file){
-  browserify('src/'+file+'.js',{debug:true})
+  return browserify('src/'+file+'.js',{debug:true})
     .transform(babelify)
     .transform('glslify')
     .bundle()
@@ -18,9 +15,14 @@ function compileJS(file){
     .pipe(streamify(uglify()))
     .pipe(gulp.dest('demo/js'));
 }
-gulp.task('default',['js1','js2','js3'],function(){});
+gulp.task('default', function() {
+  console.log('running...')
+})
+// gulp.task('default',['js1','js2','js3'],function(){
+//   console.log('running...')
+// });
 gulp.task('js1',function(){
-  compileJS('index');
+  return compileJS('index');
 });
 gulp.task('js2',function(){
   compileJS('index2');

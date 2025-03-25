@@ -4,9 +4,9 @@ export function getContext(canvas, options={}) {
 
   contexts.some(name=>{
     try{
-      context = canvas.getContext(name,options);
+      context = canvas.getContext(name, options);
     }catch(e){};
-    return context!=null;
+    return context;
   });
 
   if(context==null){
@@ -78,17 +78,17 @@ export function createTexture(gl,source,i){
   var texture = gl.createTexture();
   activeTexture(gl,i);
   gl.bindTexture(gl.TEXTURE_2D, texture);
-
+  
   // Set the parameters so we can render any size image.
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-
+  
 	if ( source == null ) {
-		return texture;
+    return texture;
 	} else {
-		updateTexture(gl,source);
+    updateTexture(gl,source);
 	}
 
   return texture;

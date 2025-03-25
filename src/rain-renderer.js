@@ -64,13 +64,12 @@ RainRenderer.prototype={
     gl.createUniform("1f","parallaxBg",this.options.parallaxBg);
     gl.createUniform("1f","parallaxFg",this.options.parallaxFg);
 
-
     gl.createTexture(null,0);
 
     this.textures=[
       {name:'textureShine', img:this.imageShine==null?createCanvas(2,2):this.imageShine},
-      {name:'textureFg', img:this.imageFg},
-      {name:'textureBg', img:this.imageBg}
+      {name:'textureFg', img:this.imageFg==null?createCanvas(2,2):this.imageFg},
+      {name:'textureBg', img:this.imageBg==null?createCanvas(2,2):this.imageBg}
     ];
 
     this.textures.forEach((texture,i)=>{
