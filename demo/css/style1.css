@@ -35,6 +35,18 @@
 	content: "\e903";
 }
 
+.icon--linkedin:before {
+	content: "\f08c";
+}
+
+.icon--github:before {
+	content: "\f09b";
+}
+
+.icon--resume:before {
+	content: "\f65c";
+}
+
 .icon--storm:before {
 	content: "\e906";
 }
@@ -88,6 +100,29 @@
 	align-items: center;
 	position: absolute;
 	bottom: 28vh;
+}
+
+.social__nav {
+	text-align: center;
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	position: absolute;
+	top: 2vh;
+	z-index: 50;
+}
+
+.social-item {
+	display: block;
+	padding: 0.5em;
+	color: #252445;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
 }
 
 .nav-item {
